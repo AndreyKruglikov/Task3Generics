@@ -2,14 +2,14 @@ package com.company;
 
 import com.company.parametrization.CountMap;
 import com.company.parametrization.CountMapImpl;
+import com.company.pecs.CollectionUtils;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        CountMap<Integer> countMap = new CountMapImpl<>();
+       /* CountMap<Integer> countMap = new CountMapImpl<>();
         countMap.add(10);
         countMap.add(10);
         countMap.add(5);
@@ -26,6 +26,9 @@ public class Main {
         System.out.println(map);
 
         countMap.toMap(map);
-        System.out.println(map);
+        System.out.println(map)*/;
+
+        List<Integer> list = Arrays.asList(8,1,3,5,6, 4);
+        System.out.println(CollectionUtils.range(list, 3, 6));
     }
 }
