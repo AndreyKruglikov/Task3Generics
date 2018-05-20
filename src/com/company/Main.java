@@ -28,7 +28,10 @@ public class Main {
         countMap.toMap(map);
         System.out.println(map)*/;
 
-        List<Integer> list = Arrays.asList(8,1,3,5,6, 4);
-        System.out.println(CollectionUtils.range(list, 3, 6));
+        List<Integer> list1 = Arrays.asList(8,1,3,5,6, 4);
+        System.out.println(CollectionUtils.range(list1, 3, 8));
+
+        List<Integer> list2 = Arrays.asList(8,1,3,5,6, 4);
+        System.out.println(CollectionUtils.range(list2, 3, 8, (o1, o2) -> o1.compareTo(o2)));
     }
 }

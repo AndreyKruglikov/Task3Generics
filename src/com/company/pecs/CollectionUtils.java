@@ -1,6 +1,7 @@
 package com.company.pecs;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -42,8 +43,14 @@ public class CollectionUtils {
         return false;
     }
 
-    public static <T extends Object & Comparable<? super T>> List<? extends T> range(List<? extends T> list, T min, T max) {
-        return list.stream().sorted((o1, o2) -> ((T) o1).compareTo(o2)).collect(Collectors.toList()).subList(list.indexOf(min), list.indexOf(max));
+    public static <T extends Comparable<? super T>> List<? extends T> range(List<? extends T> list, T min, T max) {
+        List<? extends T> inner = list.stream().sorted((o1, o2) -> (o1).compareTo(o2)).collect(Collectors.toList());
+        return inner.subList(inner.indexOf(min), inner.indexOf(max) + 1);
+    }
+
+    public static <T> List<? extends T> range(List<? extends T> list, T min, T max, Comparator<? super T> comparator) {
+        List<? extends T> inner = list.stream().sorted(comparator).collect(Collectors.toList());
+        return inner.subList(inner.indexOf(min), inner.indexOf(max) + 1);
     }
 
 }
