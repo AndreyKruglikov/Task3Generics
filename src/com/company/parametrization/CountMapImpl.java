@@ -44,6 +44,14 @@ public class CountMapImpl<T> implements CountMap<T> {
     public void toMap(Map<? super T, Integer> destination) {
         if (destination.isEmpty()) {
             destination.putAll(toMap());
+        } else {
+            for (T t : toMap().keySet()) {
+                if (!destination.containsKey(t)){
+                    destination.put(t, 1);
+                } else {
+                    destination.replace(t, destination.get(t) + innerMap.get(t));
+                };
+            }
         }
     }
 
